@@ -39,8 +39,7 @@ baseurl: "/PythonMathClassroom" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: fastdotai
-    github: fastai
+    github: ejbarth
 
 # Set this to true to get LaTeX math equation support
 use_math: true
@@ -58,7 +57,7 @@ annotations: false
 show_tags: true
 
 # Add your Google Analytics ID here if you have one and want to use it
-google_analytics: 
+google_analytics: G-E9Q8M2VYQV
 
 exclude:
   - docker-compose.yml
