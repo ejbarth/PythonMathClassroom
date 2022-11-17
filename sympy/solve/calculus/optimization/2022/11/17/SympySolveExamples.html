@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Sympy Solve Examples | PythonMathClassroom</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Sympy Solve Examples" />
+<meta name="author" content="Eric Barth" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A few calculus tasks" />
+<meta property="og:description" content="A few calculus tasks" />
+<link rel="canonical" href="https://ejbarth.github.io/PythonMathClassroom/sympy/solve/calculus/optimization/2022/11/17/SympySolveExamples.html" />
+<meta property="og:url" content="https://ejbarth.github.io/PythonMathClassroom/sympy/solve/calculus/optimization/2022/11/17/SympySolveExamples.html" />
+<meta property="og:site_name" content="PythonMathClassroom" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-17T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Sympy Solve Examples" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Eric Barth"},"dateModified":"2022-11-17T00:00:00-06:00","datePublished":"2022-11-17T00:00:00-06:00","description":"A few calculus tasks","headline":"Sympy Solve Examples","mainEntityOfPage":{"@type":"WebPage","@id":"https://ejbarth.github.io/PythonMathClassroom/sympy/solve/calculus/optimization/2022/11/17/SympySolveExamples.html"},"url":"https://ejbarth.github.io/PythonMathClassroom/sympy/solve/calculus/optimization/2022/11/17/SympySolveExamples.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/PythonMathClassroom/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ejbarth.github.io/PythonMathClassroom/feed.xml" title="PythonMathClassroom" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E9Q8M2VYQV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E9Q8M2VYQV');
+</script>
+
+
+<link rel="shortcut icon" type="image/x-icon" href="/PythonMathClassroom/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/PythonMathClassroom/">PythonMathClassroom</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/PythonMathClassroom/about/">About Me</a><a class="page-link" href="/PythonMathClassroom/search/">Search</a><a class="page-link" href="/PythonMathClassroom/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Sympy Solve Examples</h1><p class="page-description">A few calculus tasks</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-11-17T00:00:00-06:00" itemprop="datePublished">
+        Nov 17, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Eric Barth</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/PythonMathClassroom/categories/#sympy">sympy</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/PythonMathClassroom/categories/#solve">solve</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/PythonMathClassroom/categories/#calculus">calculus</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/PythonMathClassroom/categories/#optimization">optimization</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/ejbarth/PythonMathClassroom/tree/master/_notebooks/2022-11-17-SympySolveExamples.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/PythonMathClassroom/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/ejbarth/PythonMathClassroom/master?filepath=_notebooks%2F2022-11-17-SympySolveExamples.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/PythonMathClassroom/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/ejbarth/PythonMathClassroom/blob/master/_notebooks/2022-11-17-SympySolveExamples.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/PythonMathClassroom/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fejbarth%2FPythonMathClassroom%2Fblob%2Fmaster%2F_notebooks%2F2022-11-17-SympySolveExamples.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/PythonMathClassroom/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Solve-for-the-variable">Solve for the variable </a></li>
+<li class="toc-entry toc-h1"><a href="#Solve-for-$y$-in-terms-of-the-other-variables">Solve for $y$ in terms of the other variables </a></li>
+<li class="toc-entry toc-h1"><a href="#Find-the-$x$-intercepts">Find the $x$ intercepts </a></li>
+<li class="toc-entry toc-h1"><a href="#Multivariable-optimization:-Lagrange-Multipliers">Multivariable optimization: Lagrange Multipliers </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-11-17-SympySolveExamples.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">init_printing</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Solve-for-the-variable">
+<a class="anchor" href="#Solve-for-the-variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solve for the variable<a class="anchor-link" href="#Solve-for-the-variable"> </a>
+</h1>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZQAAABUCAYAAAClWsGgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVlSURBVHhe7d2NcqM2FAbQpO//zm21u5qqBIyAK5DQOTOexF7WFp8uuvgnyfff//oCgIv++vMVAC7RUAAIoaEAEEJDASCEhgJACA0FgBAaCgAhNBQAQmgoAITQUAAIoaEAEGK4hvL9/f3rQiy5kqkFzhrml0NuFbjfbXnNp4VDtnNxjHHVEA0lFfpymGXxK/hz1nJNcrZyncfWnKsFjuj+Ja+ycZTKAt/ahn2fspMr+ThTC9QY5j0UBQ3Qt6E/5eVp+DUpv08Zyhc4ovuG8mlR86wlnkznlua/rIH8vZMLagz9J4DLwlfw18lzbuX8l9QCtYZ9ycviFydlubWYMA/HEVcN/R4KMdJCki+ZBjOfrTlXC9QasqGUBe6sKpamMqc812snF4laoMZwDUUzgVhlMyk5vjhqqIayPIvivJRlvizJlkwtcMRwz1DWCnxtUQRiaCrUGqahpKahsO+hQVNSD9QaoqHkgk5f1y6cp0mTOZa4qvuGosjbyI1k2ZTL7zWbOZTzvKyFfF0tUGPon5QnRrmIJEpiXmphbE+fAGgoAIMrTwTSkv5UYxnuU14A/KdsHrmB5K/LZ5ytaSiN3T2hs5Ar1LnzWNFQAAb1qVnc/XJXoqEADO6J5rFGQwEghIYCQAgfG24svcYp4nhypWcRb4TX1Hd+nK1t9/49mobSmIWvDbnCyxtKHvxb1EQTsc93PU5P9vZZrvQqcMm8LNfv1pj2/j2a91AACOElr8bSGYKI48kV+nuGoqE0ZuFrQ670LC/kV9TUd/k4a9trKC9j4WtDrvDbVtPYazYteA8FNpQH5Ntc2Te5jOXOEy8NBVa8edFM0iJzZh/l0p/cMMpxP7UPGsofbz9QnjJirnnMd57ZtbKX/5H5kUu/yqZSztPdc9W8oYwwMaMVT9b7uEfNNdk7EN9Q1+UiVKtmgRq9Ls/k0oM07vLyhKYNJU/IaBMTqdXEzp5t61w/eVP2tTnW7utbsnlqQR7dLS959Tw5Cr9NBqPnWuNNdR09X2+pyxnqONLU76EoljZGzTWPe/Sz0+j85UKt6d+UH/0g6ZVcn3Uk/7ztDAuuXNoKbSgp+PKSLa/3oLfx7MkZLrNcXn9aT2OJkjNeZr283oO7x5MzWGaxvP60nsbyZqENJXX0fMnWbntaLq6exrRnLce12540Yq411nJeu+1pT+S/lsPabU96a132aNqXvBRXG6Pm+pZFJ3r8cuGI6RpKPkCIJddnyX+dXO7V5JdDlpN45O6vTH7t46THWG6bH7dBFOHOZHsl12zvsd6S66exnsk+uZJ/7eNczX9r29r7KPfxyJivqhnX2X1KjmxL42covU3CWnGNqqf9eFOuNdT1NnU5t6bPUHqbzDyuGr0WYotsrx54s+TaIvsIEflv7VvtPrfIJt3nlftrmQvrbmsoV4ujpZGKpkW2reZm9FyXWmTf0pH8t7atvY8W2Vz9/1tq9yk5si0NXvLKE1Bau43jZNtOXjC28pw1+71cklmz4adm76EsO7oOH0e2z5H9NtnQ/FNeSa+F9eksapQxR4wz3Wfk/o6Ya5LHvTXGFtm3cCb/TzWwl0vSIptPYzojOhd+avY35WuKkHOis3XQ/FaT6xvrem+favc5Opt0f0/m/Ma5bq3pS14mog3ZtpEzzQvJmhmzr8klmTEb/m+6n5TnJ4vAvHo+C39yTJ6dnKOhQCEvIHtn47ORCzU0FJiUs/B1cjlPQ4GFGc7GzyyacmGPhgIrZlhQzuyjXPik2ceGAZiLZygAhNBQAAihoQAQQkMBIISGAkAIDQWAEBoKACE0FABCaCgAhNBQAAihoQAQQkMBIISGAkCAr69/AOw+ddM2mdr2AAAAAElFTkSuQmCC" alt="image.png"></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s2">"t"</span><span class="p">)</span>
+<span class="n">expr</span><span class="o">=</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">8</span><span class="o">/</span><span class="p">((</span><span class="n">t</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">tsol</span><span class="o">=</span><span class="n">solve</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="nb">dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tsol</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \left[ \left\{ t : - \frac{4}{5}\right\}\right]$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And just 'cause we can, let's verify the solution by plugging it into the original expression:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">expr</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">tsol</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle 0$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Solve-for-$y$-in-terms-of-the-other-variables">
+<a class="anchor" href="#Solve-for-%24y%24-in-terms-of-the-other-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solve for $y$ in terms of the other variables<a class="anchor-link" href="#Solve-for-%24y%24-in-terms-of-the-other-variables"> </a>
+</h1>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOwAAABQCAYAAAAa25kaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOsSURBVHhe7d2BbqMwEEXRpP//z7sdKZYs5AEbzxi/9B4JbTcQMmPzgE2b7fvfrxcACT+fPwEIILCAEAILCCGwgBACCwghsIAQAgsIIbCAEAILCCGwgBACCwghsIAQAgsIIbCAkPTAvt/vz1cAZqUGlrACscIDayEtC4BY4YG1/8CiLABi8aYTIITAAkIILCCEwAJCCCwghMACQggsIITAAkIILCCEwAJCCCwghMACQsJ/3eTVp3T4UABwH78fFkPKCfmbD5udeySw6HJ25/Qth5DX4079EVhcsgO5dZh809W21WMd4F165E2nTt7Z96846199bLz665Du0iOBBT4UTjwEFpfsSnN2S7jL7WKG3Xrb7t+wx7NcKc973JytM2X9TKu2j4ihWlHrCnUfrVq9Pq/6f4o37l6fV314+5u11RW2brI0ao/Z4jWeNTAZlGo9U/owrV7qPst6e8yWXXuva73y5Dxud0t8ZxB2PQhaomotAZhZRo08T2lOPHWvx36e6m+bW+IyOHU5rceObJuy/mwfZqbV+nXuWlXrCl6tZ33t3tPRWY/l72f9muiewwJbF9nr6qVbg+HxBql3H3fqP+odytlad+H1cTTb18zcRLymtw9vm9l+z3zdu8QZg5RFqda/pCestZXzuO1POo0OmndWizrb2X6ihiq71kilJtOq66rmq+fvZmQOvG1H9jFq+yusNxg9RrZ92mittv3sstLMPK7WClpvvdl9bRPYmYOoPM87o2Wc6e6KqtW2m11mteZrZh6fZnX3jkvUPI7aIrDHCfYm3BvQ8pj3vJ0o1VrrOQBn5/FJpVb7s7UcPTWP290SlwE4DsjIwNi2qwfyrt1rreehrrP+uhW+sn5mHleJqMn2saK31DedSgO9L9HafmQf3oBFtGj7jhyqzFqzHGv2am3NWeuxb7B6HlMCu7yJBQeI7S9iXytqRb6n5jH8lrgc2PVSlIYitfaZ8ToRk7CqVuR6ch5DA+sVnR1a0wpURMgyKNUK3xPzGHpLXIfxuNuzdbNaJ4HsgbtLqVb4nprHZYE1ZT0HKHBP6C3xWRBbZyQAY8LfdLLQcgUFciz5wYmrW2UAfZYEFkCM9MBydQXipAaWsAKx0gJbfwuHsAIxUq+wraDy7R3gvpTAWii5qgLxwj+t03MFJczAPaFXWG53gVypH2AHECv1TScAsQgsIITAAkIILCCEwAJCCCwghMACQggsIITAAkIILCCEwAJCCCwghMACMl6v/zKxVd0K8QgfAAAAAElFTkSuQmCC" alt="image.png"></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x,y"</span><span class="p">)</span>
+<span class="n">ysol</span><span class="o">=</span><span class="n">solve</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">),</span><span class="n">y</span><span class="p">,</span><span class="nb">dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ysol</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \left[ \left\{ y : \frac{6.0 x}{x + 6.0}\right\}\right]$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">ysol</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">ysol</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \frac{3.0 x^{2}}{x + 6.0} - 3 x + \frac{18.0 x}{x + 6.0}$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle 0$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Find-the-$x$-intercepts">
+<a class="anchor" href="#Find-the-%24x%24-intercepts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Find the $x$ intercepts<a class="anchor-link" href="#Find-the-%24x%24-intercepts"> </a>
+</h1>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOgAAAAyCAYAAABWDJcxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKTSURBVHhe7duBTuswDIXhlfd/ZyDSIqwoWdMmTo/D/0kTaHBb28npCrsc379eACR9vT8CEERAAWEEFBBGQAFhBBQQRkABYQQUEEZAAWEEFBBGQAFhBBQQRkABYQQUEMZfs0x0HMf7sz+MFyN4BZ0khzMF0oayFlqgFwF1wisnZiCggDACOkl5a6su3XrvfPu9S3/8ksiJ3RxKI/60aXfYCq3+ovZGQB0oh7NWT643+lao9ae6Fr24xZ3MY0PYY476dKyZ57lixnlbx7Br8FR/Iwiog7Qp8saIuCki223eBHSitDmUb6PshaNGufYRkfty/Rm0vJqVp8pfVxxgq/be563R/tKxvWZk666d4+oc7pjVX66pPNZZj8rcXkFbw4rA1p7rT8+lR6uf/L21h6qzjXtnDk+yde7C9RZ35rDyxhh5XLHbQltX5hF9DrbPiL243eKmweRD5yHZU6kO7lOtT9VpZzlbax1WzuGJ/qJwfx/0ygZQ5V2rndFdI7X1buK7c3iqv96+lC37LW7UASGmHcKZLHsFLU9z92q8msJCpxpGz33Wx9l6eM5hRn/WWS+RPPI+qF3sXunfjD5GlIs9eryoosyhFs6Ia+Ya0DyQ1pXsyhUufe/oo0eq+b+Fr9Zv1DmkmnvXOoIlb7NEWeiyzlbdkTdBT91R55DrTB9rj4iW3uJGGlSus7zIRF1o24ftwX5eC1v+uvoc1OqZZcmfm7WGt+DUt5SbMqk9t0o698zzluvROvaqOczubydL/i+u9wLvbvcNTEDb3G5xcxCt2nM4t/vmJZxt7j+D1obPggB9ltziWoQT6Lfkl0QA7ln6NguAawgoIIyAAsIIKCCMgALCCCggjIACwggoIIyAArJerx/UpMKPFCUPcgAAAABJRU5ErkJggg==" alt="image.png"></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">ee</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ee</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle y = x^{2} + 3 x + 2$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">ee</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle 0 = x^{2} + 3 x + 2$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[-2, -1]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Multivariable-optimization:-Lagrange-Multipliers">
+<a class="anchor" href="#Multivariable-optimization:-Lagrange-Multipliers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multivariable optimization: Lagrange Multipliers<a class="anchor-link" href="#Multivariable-optimization:-Lagrange-Multipliers"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Minimize the function $f(x)=2x^2+y^2$ subject to the constraint $x^2+y^2=1$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x y"</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"h"</span><span class="p">)</span> <span class="c1"># h is the lagrange multipler</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">f</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">g</span><span class="o">=</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="n">solve</span><span class="p">([</span><span class="n">Eq</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">h</span><span class="o">*</span><span class="n">g</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+         <span class="n">Eq</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">h</span><span class="o">*</span><span class="n">g</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> 
+         <span class="n">Eq</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="mi">1</span><span class="p">)],[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">h</span><span class="p">],</span>
+            <span class="nb">dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">s</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \left[ \left\{ h : 1, \  x : 0, \  y : -1\right\}, \  \left\{ h : 1, \  x : 0, \  y : 1\right\}, \  \left\{ h : 2, \  x : -1, \  y : 0\right\}, \  \left\{ h : 2, \  x : 1, \  y : 0\right\}\right]$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We evaluate the objective function $f$ at each of the points identified by the Lagrang multiplier procedure and see that minimum value of $f$ occurs at $(0,1)$ and $(0,-1)$.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+1
+2
+2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Minimize the volume of a rectangular prism subject to the suface area constraint $2yz+2xz+2xy=12$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">h</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x y z h"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">z</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">V</span><span class="o">=</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">ss</span><span class="o">=</span><span class="n">solve</span><span class="p">(</span> <span class="p">[</span><span class="n">Eq</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">h</span><span class="o">*</span><span class="n">diff</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">x</span><span class="p">)),</span>
+           <span class="n">Eq</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">h</span><span class="o">*</span><span class="n">diff</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">y</span><span class="p">)),</span>
+           <span class="n">Eq</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="p">),</span><span class="n">h</span><span class="o">*</span><span class="n">diff</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">z</span><span class="p">)),</span>
+           <span class="n">Eq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">12</span><span class="p">)],</span>
+             <span class="nb">dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ss</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \left[ \left\{ h : - \frac{\sqrt{2}}{4}, \  x : - \sqrt{2}, \  y : - \sqrt{2}, \  z : - \sqrt{2}\right\}, \  \left\{ h : \frac{\sqrt{2}}{4}, \  x : \sqrt{2}, \  y : \sqrt{2}, \  z : \sqrt{2}\right\}\right]$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ignoring the solution with negative side lengths, we arrive at the minimum volume of the cube with sidelength $\sqrt{2}$:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">V</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">ss</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle 2 \sqrt{2}$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Minimize the surface area of a rectangular prism with fixed volume $V=xyz=1000$.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">h</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x y z h"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">z</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span>
+<span class="n">V</span><span class="o">=</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">sss</span><span class="o">=</span><span class="n">solve</span><span class="p">(</span> <span class="p">[</span><span class="n">Eq</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">h</span><span class="o">*</span><span class="n">diff</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">x</span><span class="p">)),</span>
+           <span class="n">Eq</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">h</span><span class="o">*</span><span class="n">diff</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">y</span><span class="p">)),</span>
+           <span class="n">Eq</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="p">),</span><span class="n">h</span><span class="o">*</span><span class="n">diff</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">z</span><span class="p">)),</span>
+           <span class="n">Eq</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="mi">1000</span><span class="p">)],</span>
+             <span class="nb">dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sss</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \left[ \left\{ h : \frac{5}{2}, \  x : 10, \  y : 10, \  z : 10\right\}, \  \left\{ h : - \frac{5}{4} - \frac{5 \sqrt{3} i}{4}, \  x : -5 - 5 \sqrt{3} i, \  y : -5 - 5 \sqrt{3} i, \  z : -5 - 5 \sqrt{3} i\right\}, \  \left\{ h : - \frac{5}{4} + \frac{5 \sqrt{3} i}{4}, \  x : -5 + 5 \sqrt{3} i, \  y : -5 + 5 \sqrt{3} i, \  z : -5 + 5 \sqrt{3} i\right\}\right]$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ignoring the complex solutions, we find the minimum surface area 600 occurs for the cube of sidelength 10</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">sss</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle 600$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ejbarth/PythonMathClassroom"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/PythonMathClassroom/sympy/solve/calculus/optimization/2022/11/17/SympySolveExamples.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/PythonMathClassroom/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/PythonMathClassroom/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/PythonMathClassroom/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for people who use Python in Math Class</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
